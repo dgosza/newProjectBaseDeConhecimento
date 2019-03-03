@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Acesso Técnico</title>
+    <title>Consulta Rápida</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--------------------FAV ICON--------------------------------------------!-->
@@ -34,20 +34,19 @@
             <div class="col s12 l12">
 
                 <div class="col s12 l12">
-                    <h1 class="flow-text">o que você procura?</h1>
-                    <p align="justify">
-                        Na Base de Conhecimento você encontrará o suporte necessário para todos os sistemas que a Prevent Senior utiliza.<br><br>
-                        Dúvidas em relação aos acessos e permissões de usuários do PortalWeb? Acesse <a href="manual_sistema.php" style="color:#115FD3">Manual do Sistema</a> e se informe.<br>
-                        Servidores de Impressão e de Pastas? Unidades da Prevent Senior? Acesse <a href="consulta_rapida.php" style="color:#115FD3">Consulta rápida</a>
-                    </p>
+                    <h1 class="flow-text">consulta rápida</h1>
+                    <p>O intuito do Consulta Rápida é levar ao técnico a informação que o mesmo deseja, de forma rápida e dinâmica.</p>
                 </div> 
                 
                 <div class="col s12 l12">
-                    <h1 class="flow-text">Avisos</h1>
+                    <h1 class="flow-text">servidores de impressão e de pastas</h1>
+                    <a class="waves-effect waves-light btn" style="background:#146BED"><i class="material-icons left">print</i>IMPRESSÂO</a>
+                    <a class="waves-effect waves-light btn" style="background:#146BED"><i class="material-icons left">folder</i>PASTAS</a>
                 </div>
 
                 <div class="col s12 l12">
-                    <h1 class="flow-text">Painel de Férias</h1>
+                    <h1 class="flow-text">unidades da prevent senior<i class="material-icons"></i></h1>
+                    <a class="waves-effect waves-light btn" style="background-color: #146BED"><i class="material-icons left">business</i>UNIDADES</a>
                 </div>
 
 

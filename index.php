@@ -32,7 +32,7 @@
         <div class="col s12 l12">
             <br><br><br>
             <h6>Escolha o tipo de acesso a Base De Conhecimento da Prevent Senior</h6>
-            <a class="waves-effect waves-light btn white" style="color:#0d47a1;" href="acessoTecnico/view/index.php"><i class="material-icons left">polymer</i>Acesso Técnico TI</a>
+            <a class="waves-effect waves-light btn white" style="color:#0d47a1;" href="acessoTecnico/view/verificaLogin.php"><i class="material-icons left">polymer</i>Acesso Técnico TI</a>
             <a class="waves-effect waves-light btn white" style="color:#0d47a1;" href="acessoUsuario/view/index.php"><i class="material-icons left">person</i>Acesso Usuário</a>
         </div>
 

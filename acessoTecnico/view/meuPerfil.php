@@ -31,26 +31,31 @@
     <div class="middle">
         <div class="row container">
 
-            <div class="col s12 l12">
+            <div class="col s12 l12 ">
 
-                <div class="col s12 l12">
-                    <h1 class="flow-text">o que você procura?</h1>
-                    <p align="justify">
-                        Na Base de Conhecimento você encontrará o suporte necessário para todos os sistemas que a Prevent Senior utiliza.<br><br>
-                        Dúvidas em relação aos acessos e permissões de usuários do PortalWeb? Acesse <a href="manual_sistema.php" style="color:#115FD3">Manual do Sistema</a> e se informe.<br>
-                        Servidores de Impressão e de Pastas? Unidades da Prevent Senior? Acesse <a href="consulta_rapida.php" style="color:#115FD3">Consulta rápida</a>
-                    </p>
-                </div> 
+                <h1 class="flow-text">meu perfil</h1><br><br>
+                   
+               
+
+                <div class="col s12 l2 ">
+                    <img src="imgs/me.png" alt="" class="circle responsive-img" width="180">
+                </div>
+
+                <div class="col s12 l10 ">
+                    <h1 class="flow-text left">Diego Magalhães de Souza</h1>
+                </div>
                 
-                <div class="col s12 l12">
-                    <h1 class="flow-text">Avisos</h1>
+                <div class="col s12 l10 ">
+                    <i>Tipo de Acesso: <b>Administrador</b></i> <br>
+                    <i>Cadastrado: 12/12/2019</i>
                 </div>
 
-                <div class="col s12 l12">
-                    <h1 class="flow-text">Painel de Férias</h1>
-                </div>
+            </div>
 
+            <div class="col s12 l12 "><br><div class="divider"></div></div>
 
+            <div class="col s12 l12">
+                <h1 class="flow-text">meus favoritos</h1>
             </div>
 
         </div>
@@ -58,7 +63,11 @@
 
     <!----------------------------------FOOTER--------------------------->
     <?php include_once 'rodape.php'; ?>
-    
+
+
+
+
+
 
 
 
@@ -74,8 +83,9 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="fonte.js"></script>
-
+    
     <!--------------------SCRIPTS DE INICIALIZAÇÂO DO FRAMEWORK-----------------------!-->
+
     <!---------------------------DROPDOWN DO NAVBAR-----------------------------------!-->
     <script>
         //jQuery name space
@@ -90,11 +100,6 @@
                 });
             }); // end of document ready
         })(jQuery); // end of jQuery name space
-    </script>
-
-    <!---------------------------MENU MOBILE-----------------------------------!-->
-    <script>
-        $(".button-collapse").sideNav();
     </script>
     
 </body>
