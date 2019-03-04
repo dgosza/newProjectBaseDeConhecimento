@@ -1,9 +1,9 @@
 html, body{
     font-family: "Roboto", sans-serif;
     height:100%;
+    
 }
 
-/* index.php */
 .middle h1 /* TITULOS DO SITE */{
     text-transform: uppercase;
 }
@@ -13,10 +13,24 @@ html, body{
 .dropdown-content li a:hover{color:#0d47a1;background-color: #0d48a12d;}
 
 /* rodape */
-.middle{min-height:100%;}
+.middle{
+    min-height:100%;
+}
 .footer {
     position:absolute;
     bottom:0;
     width:100%;
 }
 
+.tabela th{
+    font-family: "Roboto", sans-serif;
+    font-size:18px;
+}
+
+.nar-wrapper ul li{
+
+}
+
+.nar-wrapper ul li a:hover{
+    font-size: 40px;
+}

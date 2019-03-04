@@ -28,10 +28,10 @@
     <!----------------------------------NAV BAR--------------------------->
     <?php include_once 'navbar.php'; ?>
 
-    <div class="middle">
+    <div class="middle acessibilidade">
         <div class="row container">
 
-            <div class="col s12 l12">
+            <div class="col s12 l12 ">
 
                 <div class="col s12 l12">
                     <h1 class="flow-text">o que você procura?</h1>

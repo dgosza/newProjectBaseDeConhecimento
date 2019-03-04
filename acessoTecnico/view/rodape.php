@@ -1,4 +1,4 @@
-<footer class="page-footer rodape #0d47a1 blue darken-3">
+<footer class="page-footer rodape #0d47a1 blue darken-3 acessibilidade">
     <div class="row container">
         
         <div class="col s12 l6">

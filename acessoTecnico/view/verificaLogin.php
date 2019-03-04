@@ -39,7 +39,7 @@
             <div class="col s12 l4 offset-l4">
                 <form action="../controller/validaLogin.php" method="POST" id="formLogin">
                     <div class="input-field col s12" style="color:#fff;">
-                        <input id="login" name="login" type="text" class="validate">
+                        <input id="login" name="login" type="text" class="validate" autocomplete="off">
                         <label for="login">Login</label>
                     </div>
 

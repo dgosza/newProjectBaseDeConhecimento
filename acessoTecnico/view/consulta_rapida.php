@@ -28,28 +28,79 @@
     <!----------------------------------NAV BAR--------------------------->
     <?php include_once 'navbar.php'; ?>
 
-    <div class="middle">
+    <div class="middle acessibilidade">
         <div class="row container">
 
             <div class="col s12 l12">
 
-                <div class="col s12 l12">
-                    <h1 class="flow-text">consulta rápida</h1>
+                <div class="col s12 l10">
+                    <h1 class="flow-text ">consulta rápida</h1>
                     <p>O intuito do Consulta Rápida é levar ao técnico a informação que o mesmo deseja, de forma rápida e dinâmica.</p>
                 </div> 
                 
-                <div class="col s12 l12">
-                    <h1 class="flow-text">servidores de impressão e de pastas</h1>
-                    <a class="waves-effect waves-light btn" style="background:#146BED"><i class="material-icons left">print</i>IMPRESSÂO</a>
-                    <a class="waves-effect waves-light btn" style="background:#146BED"><i class="material-icons left">folder</i>PASTAS</a>
+                <div class="col s12 l12 button">
+                    <h1 class="flow-text ">servidores de impressão e de pastas</h1>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modalImpressao" style="background:#146BED"><i class="material-icons left">print</i>IMPRESSÂO</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modalPastas" style="background:#146BED"><i class="material-icons left">folder</i>PASTAS</a>
                 </div>
 
                 <div class="col s12 l12">
-                    <h1 class="flow-text">unidades da prevent senior<i class="material-icons"></i></h1>
+                    <br>
+                    <h1 class="flow-text ">unidades da prevent senior<i class="material-icons"></i></h1>
                     <a class="waves-effect waves-light btn" style="background-color: #146BED"><i class="material-icons left">business</i>UNIDADES</a>
                 </div>
 
+            </div>
 
+            <!----------------------------------MODAL SERVIDOR DE IMPRESSAO--------------------------->
+            <div id="modalImpressao" class="modal bottom-sheet">
+                <div class="modal-content container">
+                    <div class="col s12 l11">
+                        <h1 class="flow-text">servidores de impressão</h1>
+                    </div>
+
+                    <div class="col s12 l1">
+                        <a href="" class="btn-floating #0d47a1 blue darken-3"><i class="material-icons">add</i></a>
+                    </div>
+                    
+                    <table class="highlight tabela">
+                        <thead>
+                            <tr>
+                                <th style="user-select: none;" class="flow-text">Unidade</th>
+                                <th style="user-select: none;" class="flow-text">Hostname</th>
+                                <th style="user-select: none;" class="flow-text">Endereço IP</th>
+                                <th style="user-select: none;" class="flow-text">Descrição</th>
+                                <th style="user-select: none;" class="flow-text">Ação</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <?php
+
+                                include_once '../conecta_banco.php';
+                                $query = $conecta->prepare("SELECT * from serv_impressao WHERE ativo = 1");
+                                $query->execute();
+                                $fetchAll = $query->fetchAll();
+                                foreach($fetchAll as $dados_impressao){
+                                    
+                                    echo '<tr>';
+                                    echo '<td style="user-select: none;">'.$dados_impressao['unidade'].'</td>';
+                                    echo '<td><strong>'.$dados_impressao['hostname'].'</strong></td>';
+                                    echo '<td><strong>'.$dados_impressao['endereco_ip'].'</strong></td>';
+                                    echo '<td style="user-select: none;">'.$dados_impressao['descricao'].'</td>';
+                                    echo '<td><i class="material-icons">edit</i><i class="material-icons">delete</i></td>';
+                                    echo '</tr>';
+                                }             
+
+                            ?>
+                        </tbody>
+
+                    </table>
+
+                </div>
+                <div class="modal-footer container">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
             </div>
 
         </div>
@@ -94,6 +145,14 @@
     <!---------------------------MENU MOBILE-----------------------------------!-->
     <script>
         $(".button-collapse").sideNav();
+    </script>
+
+    <!---------------------------MODAL-----------------------------------------!-->
+    <script>
+        $(document).ready(function(){
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
     </script>
     
 </body>
