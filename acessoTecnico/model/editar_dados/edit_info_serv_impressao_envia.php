@@ -5,7 +5,7 @@
 
     //botao com o name alterar
     $envia=filter_input (INPUT_POST, 'editar', FILTER_SANITIZE_STRING);
-    if($envia){
+
         //recupera os dados do form
         $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
         $endereco_ip = filter_input (INPUT_POST, 'endereco_ip', FILTER_SANITIZE_STRING);
@@ -27,9 +27,7 @@
         }else{
             header("Location: cadastroErro.php");
         }
-    }else{
-        echo "erro ao cadastrar";
-    }
+
 
 
 ?>

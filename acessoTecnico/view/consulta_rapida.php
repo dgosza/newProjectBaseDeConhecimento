@@ -98,7 +98,7 @@
                                     echo '<td>'.$dados_impressao['descricao'].'</td>';
                                     echo '<td>
                                                 <a href="#editServerImpressao?id='.$dados_impressao['id'].'" class="modal-trigger" style="color:inherit"><i class=" material-icons">edit</i></a>
-                                                <a href="" style="color:inherit"><i class=" material-icons">delete</i></a>
+                                                <a href="#excluirServerImpressao?id='.$dados_impressao['id'].'" class="modal-trigger" style="color:inherit"><i class=" material-icons">delete</i></a>
                                         </td>';
                                     echo '</tr>';
                                 }             
@@ -115,7 +115,6 @@
                 </div>
                 
             </div>
-            <!----------------------------------FINAL MODAL SERVIDOR DE IMPRESSAO--------------------------->
 
 
 
@@ -175,7 +174,74 @@
                 }
             
             ?>
-            <!----------------------------------FINAL MODAL EDITAR DADOS DO SERVER DE IMPRESSAO--------------------------->
+            <!----------------------------------fazer o botao no final do modal--------------------------->
+
+
+
+            <!----------------------------------INICIO MODAL DELETE DADOS DO SERVER DE IMPRESSAO--------------------------->
+            <?php 
+            
+                include_once '../conecta_banco.php';
+                $query = $conecta->prepare("SELECT unidade.*, serv_impressao.*
+                FROM serv_impressao as serv_impressao 
+                RIGHT JOIN unidades_prevent as unidade 
+                on (unidade.id_unidade = serv_impressao.unidade_fk) WHERE serv_impressao.ativo = 1 ");
+                $query->execute();
+                $fetchAll = $query->fetchAll();
+                foreach($fetchAll as $dados_impressao){
+                    
+                    echo '<div id="excluirServerImpressao?id='.$dados_impressao['id'].'" class="modal modal-fixed-footer" style="width:600px;height:800px;">';
+                    echo '    <div class="modal-content ">';
+                    echo '        <h1 class="flow-text">tem certeza que deseja excluir?</h1>';
+                    echo '        <div class="col s12 l16" >';
+                    echo '            <form method="POST" action="../model/delete_dados/delete_info_serv_impressao_envia.php">';
+                    echo '                  <input type="hidden" name="id" value="'.$dados_impressao['id'].'"> ';
+                    echo '                   <div class="input-field col s6">';
+                    echo '                      <input id="hostname" type="text" class"validate" value="'.$dados_impressao['hostname'].'" name="hostname" maxlength="20" autocomplete="off" disabled ">';
+                    echo '                      <label for="hostname">Hostname</label>';
+                    echo '                   </div>';
+                    echo '                   <div class="input-field col s6">';
+                    echo '                      <input id="endereco_ip" type="text" class"validate" value="'.$dados_impressao['endereco_ip'].'" name="endereco_ip" maxlength="20" autocomplete="off" disabled ">';
+                    echo '                      <label for="endereco_ip">Endereço IP</label>';
+                    echo '                   </div>';
+                    echo '                   <div class="input-field col s12">';
+                    echo '                      <select name="unidade_fk" disabled >';
+                    echo '                          <option value="'.$dados_impressao['unidade_fk'].'" selected >'.$dados_impressao['unidade'].'</option>';
+                                                    $select = $conecta->prepare("SELECT * FROM unidades_prevent WHERE ativo = 1 ORDER BY unidade ASC");
+                                                    $select->execute();
+                                                    $fetchAll = $select->fetchAll();
+                                                    foreach($fetchAll as $unidades){
+                                                        echo '<option value ="'.$unidades['id_unidade'].'">'.$unidades['unidade'].'</option>';
+                                                    }
+                    echo '                      </select>';
+                    echo '                      <label>Unidade</label>';
+                    echo '                   </div>';
+                    echo '                   <div class="input-field col s12">';
+                    echo '                      <input id="descricao" type="text" class"validate" value="'.$dados_impressao['descricao'].'" name="descricao" maxlength="100" autocomplete="off" disabled ">';
+                    echo '                      <label for="descricao">Descrição</label><br><br>';
+                    echo '                      <input class="btn left waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text" type="submit" value="Excluir" name="excluir"> ';
+                    echo '                   </div>';
+                    echo '            </form>    ';
+                    echo '        </div>';
+                    echo '    </div>';
+                    echo '    <div class="modal-footer">';
+                    echo '        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>';
+                    echo '    </div>';
+
+                    echo '</div>';
+
+                }
+            
+            ?>
+    
+
+
+
+
+
+
+
+
 
 
 
@@ -231,6 +297,7 @@
             </div>
 
             <!-- fazer modal do excluir e o de servidor de pastas !-->
+            <!--verificar o height do select dentro do modal!-->
 
         </div>
     </div>
