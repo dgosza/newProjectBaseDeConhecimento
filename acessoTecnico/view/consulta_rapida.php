@@ -111,10 +111,11 @@
                 </div>
                 <div class="modal-footer container" style="height:70px;">
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat left">Fechar</a>
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text">Adicionar Servidor de Impressão</a>
+                    <a href="#adicinarServerImpressao" class="modal-action modal-trigger waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text">Adicionar Servidor de Impressão</a>
                 </div>
                 
             </div>
+
 
 
 
@@ -130,18 +131,18 @@
                 $fetchAll = $query->fetchAll();
                 foreach($fetchAll as $dados_impressao){
                     
-                    echo '<div id="editServerImpressao?id='.$dados_impressao['id'].'" class="modal modal-fixed-footer" style="width:600px;height:8  00px;">';
+                    echo '<div id="editServerImpressao?id='.$dados_impressao['id'].'" class="modal modal-fixed-footer" style="width:600px;height:800px;">';
                     echo '    <div class="modal-content ">';
                     echo '        <i class="material-icons left">edit</i><h1 class="flow-text">'.$dados_impressao['unidade'].'</h1>';
                     echo '        <div class="col s12 l16" >';
-                    echo '            <form method="POST" action="../model/editar_dados/edit_info_serv_impressao_envia.php">';
+                    echo '            <form method="get" action="../model/editar_dados/edit_info_serv_impressao_envia.php" id="formEnviaEditar">';
                     echo '                  <input type="hidden" name="id" value="'.$dados_impressao['id'].'"> ';
                     echo '                   <div class="input-field col s6">';
-                    echo '                      <input id="hostname" type="text" class"validate" value="'.$dados_impressao['hostname'].'" name="hostname" maxlength="20" autocomplete="off" ">';
+                    echo '                      <input id="hostname" type="text" class"validate" value="'.$dados_impressao['hostname'].'" name="hostname" maxlength="20" autocomplete="off" >';
                     echo '                      <label for="hostname">Hostname</label>';
                     echo '                   </div>';
                     echo '                   <div class="input-field col s6">';
-                    echo '                      <input id="endereco_ip" type="text" class"validate" value="'.$dados_impressao['endereco_ip'].'" name="endereco_ip" maxlength="20" autocomplete="off" ">';
+                    echo '                      <input id="endereco_ip" type="text" class"validate" value="'.$dados_impressao['endereco_ip'].'" name="endereco_ip" maxlength="20" autocomplete="off">';
                     echo '                      <label for="endereco_ip">Endereço IP</label>';
                     echo '                   </div>';
 
@@ -159,24 +160,67 @@
                     echo '                   </div>';
 
                     echo '                   <div class="input-field col s12">';
-                    echo '                      <input id="descricao" type="text" class"validate" value="'.$dados_impressao['descricao'].'" name="descricao" maxlength="100" autocomplete="off" ">';
+                    echo '                      <input id="descricao" type="text" class"validate" value="'.$dados_impressao['descricao'].'" name="descricao" maxlength="100" autocomplete="off" >';
                     echo '                      <label for="descricao">Descrição</label><br><br>';
-                    echo '                      <input class="btn left waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text" type="submit" value="Editar" name="editar"> ';
+                    echo '                      <input type="submit" value="Editar" name="editar" id="editar"> ';
                     echo '                   </div>';
                     echo '            </form>    ';
                     echo '        </div>';
                     echo '    </div>';
                     echo '    <div class="modal-footer">';
                     echo '        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>';
+                    echo '        <button type="submit" class="btn waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text" form="formEnviaEditar">EDITAR</button>  ';
                     echo '    </div>';
                     echo '</div>';
 
                 }
             
             ?>
-            <!----------------------------------fazer o botao no final do modal--------------------------->
+    
 
+            <!----------------------------------INICIO MODAL ADICIONAR DADOS DO SERVER DE IMPRESSAO--------------------------->               
+            <div id="adicinarServerImpressao" class="modal modal-fixed-footer" style="width:600px;height:800px;">
+                <div class="modal-content ">
+                    <i class="material-icons left">edit</i><h1 class="flow-text">cadastrar unidade</h1>
+                    <div class="col s12 l16" >
+                        <form method="POST" action="../model/adicionar_dados/add_info_serv_impressao_envia.php" id="formEnviaCadastro">
+                            <div class="input-field col s6">
+                                <input id="hostname" type="text" class"validate" name="hostname" maxlength="20" autocomplete="off" >
+                                <label for="hostname">Hostname</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="endereco_ip" type="text" class"validate" name="endereco_ip" maxlength="20" autocomplete="off">
+                                <label for="endereco_ip">Endereço IP</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <select name="unidade_fk">
+                                    <option value="" selected disabled >Unidade</option>
+                                    <?php
+                                        $select = $conecta->prepare("SELECT * FROM unidades_prevent WHERE ativo = 1 ORDER BY unidade ASC");
+                                        $select->execute();
+                                        $fetchAll = $select->fetchAll();
+                                        foreach($fetchAll as $unidades){
+                                            echo '<option value ="'.$unidades['id_unidade'].'">'.$unidades['unidade'].'</option>';
+                                        }
+                                    ?>
+                                </select>
+                                <label>Unidade</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input id="descricao" type="text" class"validate" name="descricao" maxlength="100" autocomplete="off" ">
+                                <label for="descricao">Descrição</label><br><br>
+                           </div>
+                        </form>    
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+                    <button type="submit" class="btn waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text" form="formEnviaCadastro">CADASTRAR</button> 
+                </div>
+            </div>
 
+            
+    
 
             <!----------------------------------INICIO MODAL DELETE DADOS DO SERVER DE IMPRESSAO--------------------------->
             <?php 
@@ -194,7 +238,7 @@
                     echo '    <div class="modal-content ">';
                     echo '        <h1 class="flow-text">tem certeza que deseja excluir?</h1>';
                     echo '        <div class="col s12 l16" >';
-                    echo '            <form method="POST" action="../model/delete_dados/delete_info_serv_impressao_envia.php">';
+                    echo '            <form method="get" action="../model/delete_dados/delete_info_serv_impressao_envia.php">';
                     echo '                  <input type="hidden" name="id" value="'.$dados_impressao['id'].'"> ';
                     echo '                   <div class="input-field col s6">';
                     echo '                      <input id="hostname" type="text" class"validate" value="'.$dados_impressao['hostname'].'" name="hostname" maxlength="20" autocomplete="off" disabled ">';
@@ -226,6 +270,7 @@
                     echo '    </div>';
                     echo '    <div class="modal-footer">';
                     echo '        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>';
+                    echo '        <label for="excluir" tabindex="0">Submit</label>';
                     echo '    </div>';
 
                     echo '</div>';
@@ -349,6 +394,10 @@
             $('select').material_select();
         });
     </script>
+
+
+
+    
     
 </body>
 </html>
