@@ -14,7 +14,7 @@
         $hostname = filter_input (INPUT_GET, 'hostname', FILTER_SANITIZE_STRING);
 
 
-        $query="UPDATE serv_impressao set endereco_ip = :endereco_ip, unidade_fk = :unidade_fk, descricao = :descricao, hostname = :hostname WHERE id = ".$id." ";
+        $query="UPDATE serv_pastas set endereco_ip = :endereco_ip, unidade_fk = :unidade_fk, descricao = :descricao, hostname = :hostname WHERE id = ".$id." ";
         $atualiza = $conecta->prepare($query);
         $atualiza->bindParam(':endereco_ip', $endereco_ip);
         $atualiza->bindParam(':unidade_fk', $unidade);
