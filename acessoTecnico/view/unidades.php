@@ -30,14 +30,26 @@
 
     <div class="middle acessibilidade">
         <div class="row container">
+        
+            <div class="col s12 l12" style="">
+                <nav class="clean">
+                    <div class="nav-wrapper">
+                        <div class="col s12">
+                        <a href="consulta_rapida.php" class="breadcrumb">Consulta Rápida</a>
+                        <a href="" class="breadcrumb">Unidades</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
 
-            <div class="col s12 l12 ">
+
+            <div class="col s12 l12 ">            
 
                 <div class="col s12 l12">
-                    <h1 class="flow-text">unidades</h1>
-                    
+                    <h1 class="flow-text">unidades da prevent senior</h1>
+                    <p>Informações sobre todas as unidades da Prevent Senior.</p>
+                    <p>Esta pagina conta com informações sobre cada unidade da Prevent Senior, como localização dos switchs, endereço e sigla da unidade, Range de IP, caso a unidade não for DHCP, assinatura, etc...</p>
                 </div> 
-                                
 
             </div>
 
