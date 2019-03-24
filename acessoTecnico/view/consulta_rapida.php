@@ -56,6 +56,13 @@
                     <p>to do...</p>
                 </div>
 
+                <div class="col s12 l12">
+                    <br>
+                    <h1 class="flow-text ">gerador de carta de envio<i class="material-icons"></i></h1>
+                    <p>Gere uma carta de envio para unidades de forma completamente fácil e rápida.</p>
+                    <a class="waves-effect waves-light btn" href="geradorCarta.php" style="background-color: #146BED"><i class="material-icons left">drafts</i>gerador</a>
+                </div>
+
             </div>
 
             <!--------------------MODAL DO SERVIDOR DE PASTAS E IMPRESSAO---------------------!-->

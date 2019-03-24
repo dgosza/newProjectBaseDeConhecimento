@@ -61,7 +61,7 @@
 
         <div class="row">
             <br>
-            <div class="col s12 l12 center">
+            <div class="col s12 l12 left">
                 <span><h1 class="flow-text">Ordenar por </h4></span>
                 <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons large left">business</i>Por Unidade</a>
                 <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons left">network_check</i>Por DHCP</a>
