@@ -50,3 +50,16 @@ nav.clean .breadcrumb {
 nav.clean .breadcrumb:before {
   color: rgba(0, 0, 0, 0.7);
 }
+
+/* BREADCRUMB */
+
+.breadcrumb{
+    color:black;
+    font-size:15px;
+}
+
+/* unidades.php */
+.tabelaUnidades table thead tr th{
+    user-select:none;
+    font-size:18px;
+}
