@@ -1,18 +1,22 @@
-<?php
+<?php 
 
-require_once '../dompdf/autoload.inc.php';
-use Dompdf\Dompdf;
-$dompdf = new DOMPDF();
-$dompdf->load_html('
+ob_start();
 
-    <style>
-    p{ font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;}
-    </style>
+$nome = "diego";
 
-    <br><br>
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<style>body{ font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;}</style>
+<title>Title</title>
+</head>
+<body>
 
     <img src="../view/imgs/logoPreventAzul.png" width="200">
-    <p style="font-style:calibri">A empresa <b>PREVENT SENIOR PRIVATE OPERADORA DE SAÚDE LTDA</b>, estabelecida à <b>Rua
+    <p>A empresa <b>PREVENT SENIOR PRIVATE OPERADORA DE SAÚDE LTDA</b>, estabelecida à <b>Rua
     Lourenço Marques, Nº 158 – SÃO PAULO/SP</b>, inscrita no CNPJ sob o <b>n°</b>00.461.479/0001-63,
     DECLARA, para quaisquer efeitos, que é considerada <b>NÃO CONTRIBUINTE DO ICMS</b>, nem
     sujeita à inscrição no Cadastro de Contribuinte da Secretaria da Fazenda do Estado de São Paulo
@@ -26,11 +30,19 @@ $dompdf->load_html('
 
     <br>
 
-    <b>Produto: '..'</b>
-    <b>N° Patrimônio: '..'</b>
-    <b>Produto: '..'</b>
+    <b>Produto: <?php echo $nome; ?></b>
+    <b>N° Patrimônio: $nome</b>
+    <b>Produto: $nome</b>
 
-');
+</body>
+</html>
+
+<?php
+$html = ob_get_clean();
+require_once '../dompdf/autoload.inc.php';
+use Dompdf\Dompdf;
+$dompdf = new DOMPDF();
+$dompdf->load_html($html);
 $dompdf->render();
 $dompdf->stream(
     "relatorio_titulo_pdf",
