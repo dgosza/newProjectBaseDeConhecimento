@@ -6,9 +6,10 @@
     $pegaEndereco->execute();
     $fetchAll= $pegaEndereco ->fetchAll();
 
+    foreach($fetchAll as $endereco){   
 
-    foreach($fetchAll as $endereco){       
-        echo '<input type="text" name="endereco" value="Endereço: '.$endereco['endereco'].'" disabled>';
+        echo '<input type="text" name="endereco" value="'.$endereco['endereco'].'" class="validate" >';
+
 
     }
   

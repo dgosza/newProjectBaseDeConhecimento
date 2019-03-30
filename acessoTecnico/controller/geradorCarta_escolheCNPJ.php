@@ -6,9 +6,10 @@
     $pegaCNPJ->execute();
     $fetchAll= $pegaCNPJ ->fetchAll();
 
+    foreach($fetchAll as $cnpj){   
 
-    foreach($fetchAll as $cnpj){       
-        echo '<input type="text" name="cnpj" value="CNPJ: '.$cnpj['cnpj'].'" disabled>';
+        echo '<input type="text" name="cnpj" value="'.$cnpj['cnpj'].'" class="validate" active>';
+        
 
     }
  

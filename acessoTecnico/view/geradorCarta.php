@@ -57,10 +57,10 @@
 
         <div class="divider"></div>
 
-        <div class="row container">
-            <div class="col s12 l12">
+        <div class="row container" >
+            <div class="col s12 l12" id="recarregar">
                 <br>
-                <form method="POST" action="geradorCarta_paginaPDF.php">
+                <form method="POST" action="geradorCarta_paginaPDF.php" target="_blank">
                     <div class="input-field col s12 l12 " style="position:relative;top:15px;">
                         <select name="unidade" id="unidade">
                             <option value="" disabled selected>Escolha a unidade</option>
@@ -78,10 +78,13 @@
                     </div>
 
                     <div class="input-field col s12 l6" id="cnpj">
-                        <input type="text" name="cnpj" value="teste" class="validate" disabled style="display:none;">
+                        <input type="text" name="cnpj" value="CNPJ" class="validate" disabled>
+                        <label for="cnpj">CNPJ</label>
                     </div>
+                    
                     <div class="input-field col s12 l6" id="endereco">
-                        <input type="text" name="endereco" value="teste" class="validate" disabled style="display:none;">
+                        <input type="text" name="endereco" value="Endereço" class="validate" disabled>
+                        <label for="endereco">Endereço</label>
                     </div>
                     
                     <div class="input-field col s12 l6">
@@ -95,7 +98,7 @@
                     </div>
 
                     <div class="input-field col s12 l6">
-                        <input placeholder="ex: 12"" id="quantidade" name="quantidade" type="text" class="validate" maxlength="30">
+                        <input placeholder="ex: 12" id="quantidade" name="quantidade" type="text" class="validate" maxlength="30">
                         <label for="quantidade">Quantidade de Produtos...</label>
                     </div>
                 
@@ -104,11 +107,14 @@
                         <label for="ac">Aos Cuidados...</label>
                     </div>
                 
-
-                    <input type="submit" class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3 right"><i class="material-icons left">drafts</i>Gerar PDF...</a>
-
+                    <div class="col s12 l12">
+                        <label for="gerar" class="btn left waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text right"><i class="material-icons left">drafts</i>Gerar PDF</label>
+                        <input type="submit" id="gerar" name="gerar" class="hidden"  style="display:none;">
+                        <a class="waves-effect waves-teal btn-flat right" id="recarregarBtn">Limpar Campos</a>
+                    </div>
                 </form>
             </div>
+            <div id="teste" style="display: none">Lento...</div>
         </div>
 
     </div>
@@ -120,13 +126,6 @@
 
 
 
-
-
-
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -134,7 +133,7 @@
     
     <!--------------------------------------------------------------------------------!-->
     <!--------------------------------------------------------------------------------!-->
-    <!-----------------------SCRIPTS DE INICIALIZAÇÂO DO FRAMEWORK--------------------!-->
+    <!-----------------------------SCRIPTS DE INICIALIZAÇÂO---------------------------!-->
     <!--------------------------------------------------------------------------------!-->
     <!--------------------------------------------------------------------------------!-->
     <!--------------------------------DROPDOWN DO NAVBAR------------------------------!-->
@@ -153,23 +152,26 @@
         })(jQuery); // end of jQuery name space
     </script>
     <!--------------------------------MENU MOBILE-------------------------------------!-->
+    <!--------------------------------------------------------------------------------!-->
     <script>
         $(".button-collapse").sideNav();
     </script>
     <!--------------------------------SELECT FORM-------------------------------------!-->
+    <!--------------------------------------------------------------------------------!-->
     <script>
         $(document).ready(function() {
             $('select').material_select();
         });
     </script>
-
+    <!-- SCRIPT PARA BUSCAR NO BANCO O CNPJ CONFORME A UNIDADE SELECIONADA--------------->
+    <!--------------------------------------------------------------------------------!-->
     <script>
         $("#unidade").on("change",function(){
             var idUnidade = $("#unidade").val();
             
             $.ajax({
                 url: '../controller/geradorCarta_escolheCNPJ.php',
-                type: 'POST',
+                type: 'post',
                 data:{id:idUnidade},
                 beforeSend:function(){
                     $("#cnpj").css({'display':'block'});
@@ -187,14 +189,15 @@
             
         });
     </script>
-
+    <!-- SCRIPT PARA BUSCAR NO BANCO O ENDERECO CONFORME A UNIDADE SELECIONADA----------->
+    <!--------------------------------------------------------------------------------!-->
     <script>
         $("#unidade").on("change",function(){
             var idUnidade = $("#unidade").val();
             
             $.ajax({
                 url: '../controller/geradorCarta_escolheEndereco.php',
-                type: 'POST',
+                type: 'post',
                 data:{id:idUnidade},
                 beforeSend:function(){
                     $("#endereco").css({'display':'block'});
@@ -212,6 +215,14 @@
             
         });
     </script>
-    
+
+    <script>
+        $(function() {
+        $("#recarregarBtn").click(function() {
+            window.location.href = 'geradorCarta.php';
+        });
+        });
+    </script>
+
 </body>
 </html>
