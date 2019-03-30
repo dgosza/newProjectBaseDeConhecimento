@@ -2,7 +2,13 @@
 
 ob_start();
 
-$nome = "diego";
+$unidade = $_POST['unidade']; 
+$cnpj = $_POST['cnpj']; 
+$endereco = $_POST['endereco']; 
+$produto = $_POST['produto']; 
+$patri = $_POST['patri'];
+$quantidade = $_POST['quantidade']; 
+$ac = $_POST['ac']; 
 
 ?>
 
@@ -11,7 +17,7 @@ $nome = "diego";
 <head>
 <meta charset='utf-8'>
 <style>body{ font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;}</style>
-<title>Title</title>
+<title>Carta de Envio</title>
 </head>
 <body>
 
@@ -30,9 +36,33 @@ $nome = "diego";
 
     <br>
 
-    <b>Produto: <?php echo $nome; ?></b>
-    <b>N° Patrimônio: $nome</b>
-    <b>Produto: $nome</b>
+    <b>Produto: <?php echo $produto; ?></b>
+    <br>
+    <b>N° Patrimônio: <?php echo $patri; ?></b>
+    <br>
+    <b>Valor unitário do produto:</b>
+    <br>
+    <b>Quantidade de produtos: <?php echo $produto;?></b>
+    <br><br>
+    <b>Destinatário: PREVENT SENIOR RIVATE OPERADORA DE SAÙDE LTDA</b>
+    <br>
+    <b>CNPJ: <?php echo $cnpj;?></b>
+    <br>
+    <b>ENDEREÇO: <?php echo $endereco; ?></b>
+    <br>
+    <b>A/C: <?php echo $ac; ?></b>
+    <br>
+    <b>De: </b>
+    <br>
+    <b>Setor: TI</b>
+    <br>
+    <p>Motivo da Remessa <B>SIMPLES TRANSFERÊNCIA</B></p>
+    <br><br>
+    <p>São Paulo, </p>
+
+    <br><br>
+
+
 
 </body>
 </html>

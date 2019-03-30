@@ -60,7 +60,7 @@
         <div class="row container">
             <div class="col s12 l12">
                 <br>
-                <form method="POST">
+                <form method="POST" action="geradorCarta_paginaPDF.php">
                     <div class="input-field col s12 l12 " style="position:relative;top:15px;">
                         <select name="unidade" id="unidade">
                             <option value="" disabled selected>Escolha a unidade</option>
@@ -77,8 +77,12 @@
                         <label>Unidade</label>
                     </div>
 
-                    <div class="input-field col s12 l6" id="cnpj"></div>
-                    <div class="input-field col s12 l6" id="endereco"></div>
+                    <div class="input-field col s12 l6" id="cnpj">
+                        <input type="text" name="cnpj" value="teste" class="validate" disabled style="display:none;">
+                    </div>
+                    <div class="input-field col s12 l6" id="endereco">
+                        <input type="text" name="endereco" value="teste" class="validate" disabled style="display:none;">
+                    </div>
                     
                     <div class="input-field col s12 l6">
                         <input placeholder="ex: Computador, Mouse, Teclado..." id="produto" name="produto" type="text" class="validate" maxlength="30">
@@ -101,7 +105,7 @@
                     </div>
                 
 
-                    <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3 right"><i class="material-icons left">drafts</i>Gerar PDF...</a>
+                    <input type="submit" class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3 right"><i class="material-icons left">drafts</i>Gerar PDF...</a>
 
                 </form>
             </div>
