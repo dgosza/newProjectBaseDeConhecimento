@@ -103,7 +103,7 @@ foreach($fetchAll as $choose){
 
 <?php
 $html = ob_get_clean();
-require_once '../dompdf/autoload.inc.php';
+require_once '../packages/dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 $dompdf = new DOMPDF();
 $dompdf->load_html($html);

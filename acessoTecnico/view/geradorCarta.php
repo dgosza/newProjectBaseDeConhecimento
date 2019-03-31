@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Acesso Técnico</title>
+    <title>Gerador de Carta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--------------------FAV ICON--------------------------------------------!-->
@@ -60,13 +60,13 @@
         <div class="row container" >
             <div class="col s12 l12" id="recarregar">
                 <br>
-                <form method="POST" action="geradorCarta_paginaPDF.php" target="_blank">
-                    <div class="input-field col s12 l12 " style="position:relative;top:15px;">
-                        <select name="unidade" id="unidade">
-                            <option value="" disabled selected>Escolha a unidade</option>
+                <form method="POST" action="geradorCarta_paginaPDF.php" target="_blank" id="formPDF">
+                    <div class="input-field col s12 l12" style="position:relative;top:15px;">
+                        <select name="unidade" id="unidade" class="error browser-default" data-error=".errorSelect" >
+                            <option value disabled selected>Escolha a unidade</option>
                             <?php
                                 include_once '../conecta_banco.php';
-                                $select = $conecta->prepare("SELECT * FROM unidades_prevent where ativo = 1 ORDER BY unidade ASC");
+                                $select = $conecta->prepare("SELECT id_unidade, unidade FROM unidades_prevent where ativo = 1 ORDER BY unidade ASC");
                                 $select->execute();
                                 $fetchAll = $select->fetchAll();
                                 foreach($fetchAll as $unidades){
@@ -74,37 +74,41 @@
                                 }
                             ?>
                         </select>
-                        <label>Unidade</label>
+
+                        <div class="input-field"> <div class="errorSelect formValida"></div></div>
+                        
                     </div>
 
                     <div class="input-field col s12 l6" id="cnpj">
                         <input type="text" name="cnpj" value="CNPJ" class="validate" disabled>
-                        <label for="cnpj">CNPJ</label>
                     </div>
                     
                     <div class="input-field col s12 l6" id="endereco">
                         <input type="text" name="endereco" value="Endereço" class="validate" disabled>
-                        <label for="endereco">Endereço</label>
                     </div>
                     
                     <div class="input-field col s12 l6">
-                        <input placeholder="ex: Computador, Mouse, Teclado..." id="produto" name="produto" type="text" class="validate" maxlength="30">
-                        <label for="produto">Produto a ser enviado..</label>
+                        <label for="produto">Produto</label>
+                        <input id="produto" name="produto" type="text" class="validate" maxlength="30" data-error=".error1">
+                        <div class="error1 formValida"></div>
                     </div>
 
                     <div class="input-field col s12 l6">
-                        <input placeholder="Caso não houver, deixe em branco" id="patri" name="patri" type="text" class="validate" maxlength="30" autocomplete="off">
                         <label for="patri">Número do Patrimônio</label>
+                        <input id="patri" name="patri" type="text" class="validate" maxlength="30" autocomplete="off">
                     </div>
 
+                    <div class="col s12 l12"><br></div>
+
                     <div class="input-field col s12 l6">
-                        <input placeholder="ex: 12" id="quantidade" name="quantidade" type="text" class="validate" maxlength="30">
-                        <label for="quantidade">Quantidade de Produtos...</label>
+                        <label for="quantidade">Quantidade do Produto</label>
+                        <input id="quantidade" name="quantidade" type="text" class="validate" maxlength="30" data-error=".error2">
+                        <div class="error2 formValida"></div>
                     </div>
                 
                     <div class="input-field col s12 l6">
-                        <input placeholder="ex: Sabrina, Rosangela..." id="ac" name="ac" type="text" class="validate" maxlength="30">
-                        <label for="ac">Aos Cuidados...</label>
+                        <label for="ac">Aos cuidados</label>
+                        <input id="ac" name="ac" type="text" class="validate" maxlength="30">
                     </div>
                 
                     <div class="col s12 l12">
@@ -129,6 +133,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!--------------------JQUERY VALIDATION INPUT----------------------------!-->
+    <script src="../packages/validation/dist/jquery.validate.js"></script>
+    <script src="../packages/validation/dist/additional-methods.min.js"></script>
+    <!-- <script src="../packages/lib/jquery.js"></script> -->
     <script src="fonte.js"></script>
     
     <!--------------------------------------------------------------------------------!-->
@@ -215,13 +223,44 @@
             
         });
     </script>
-
+    <!---SCRIPT PARA LIMPAR OS DADOS NA PAGINA, È UM REFRESH NA PAGINA NA VERDADE-------->
+    <!--------------------------------------------------------------------------------!-->
     <script>
         $(function() {
         $("#recarregarBtn").click(function() {
             window.location.href = 'geradorCarta.php';
         });
         });
+    </script>
+
+    <script>
+
+    $("#formPDF").validate({
+        
+        errorClass: 'invalid',
+        rules: {
+            produto: "required",
+			quantidade:"required",
+            unidade: "required"
+        },
+        //For custom messages
+        messages: {
+            produto: "Especifique o produto a ser enviado",
+            quantidade: "Especifique a quantidade a ser enviada",
+            unidade: "selecione"
+            
+        },
+        errorElement : 'div',
+        errorPlacement: function(error, element) {
+          var placement = $(element).data('error');
+          if (placement) {
+            $(placement).append(error)
+          } else {
+            error.insertAfter(element);
+          }
+        }
+    });
+
     </script>
 
 </body>

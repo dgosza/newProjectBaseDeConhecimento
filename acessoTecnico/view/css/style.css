@@ -63,3 +63,10 @@ nav.clean .breadcrumb:before {
     user-select:none;
     font-size:18px;
 }
+
+/* geradorCarta.php */
+.formValida{
+    font-size:10px;
+    color:Red;
+    float:left;
+}
