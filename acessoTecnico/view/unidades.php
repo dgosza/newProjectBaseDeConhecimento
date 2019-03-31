@@ -65,9 +65,6 @@
                 <span><h1 class="flow-text">Ordenar por </h4></span>
                 <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons large left">business</i>Por Unidade</a>
                 <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons left">network_check</i>Por DHCP</a>
-                <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons left">local_hospital</i>Por Hospital</a>
-                <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons left">location_city</i>Por Núcleo</a>
-                <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons left">airline_seat_flat</i>Por Pronto Atendimento</a>
             </div>
             
             <div class="col s12 l12 tabelaUnidades">
