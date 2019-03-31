@@ -78,7 +78,7 @@ foreach($fetchAll as $choose){
     <b>De: </b><br>
     <b>Setor: TI</b><br>
     <p>Motivo da Remessa <B>SIMPLES TRANSFERÊNCIA</B></p>
-    <p>São Paulo, <?php echo ''.date('d').' de '.$mes.' de '.date('y').' '; ?> </p><br>
+    <p>São Paulo, <?php echo ''.date('d').' de '.$mes.' de '.date('Y').' '; ?> </p><br>
     <div class="separador" style="width:520px;"><hr></div>
     <p>Prevent Senior Private Operadora de Saúde LTDA</p>
     <div id="texto" style="font-size:;">
@@ -96,9 +96,7 @@ foreach($fetchAll as $choose){
         <span>Essa declaração deve ser emitida em quantidades de vias suficientes para a retenção de uma delas em eventual fiscalização Estadual. Recomendamos a utilização de 3 (três) vias, sendo uma para o remetente, uma para o destinatário e outra para acompanhar os materiais juntamente com a via do destinatário.</span>
     </div>
     <span><b>Recebido: </b></span><br>
-    <span align="center" style="color:blue">Prevent Senior Private Operadora de Saúde Ltda.</span>
-
-
+    
 
 </body>
 </html>

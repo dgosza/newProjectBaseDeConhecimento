@@ -93,7 +93,7 @@
                     </div>
 
                     <div class="input-field col s12 l6">
-                        <input placeholder="Caso não houver, deixe em branco" id="patri" name="patri" type="text" class="validate" maxlength="30">
+                        <input placeholder="Caso não houver, deixe em branco" id="patri" name="patri" type="text" class="validate" maxlength="30" autocomplete="off">
                         <label for="patri">Número do Patrimônio</label>
                     </div>
 
