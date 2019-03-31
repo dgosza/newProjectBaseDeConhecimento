@@ -62,22 +62,24 @@
                 <br>
                 <form method="POST" action="geradorCarta_paginaPDF.php" target="_blank" id="formPDF">
                     <div class="input-field col s12 l12" style="position:relative;top:15px;">
-                        <select name="unidade" id="unidade" class="error browser-default" data-error=".errorSelect" >
+                        <select name="unidade" id="unidade" data-error=".errorSelect" >
                             <option value disabled selected>Escolha a unidade</option>
-                            <?php
+                            <?php   
                                 include_once '../conecta_banco.php';
-                                $select = $conecta->prepare("SELECT id_unidade, unidade FROM unidades_prevent where ativo = 1 ORDER BY unidade ASC");
+                                $select = $conecta->prepare("SELECT id_unidade, unidade FROM unidades_prevent where ativo in (1,3) ORDER BY unidade ASC");
                                 $select->execute();
                                 $fetchAll = $select->fetchAll();
                                 foreach($fetchAll as $unidades){
-                                    echo '<option value ="'.$unidades['id_unidade'].'">'.$unidades['unidade'].'</option>';
+                                    echo '<option value ="'.$unidades['id_unidade'].'">'.$unidades['unidade'].' </option>';
                                 }
                             ?>
                         </select>
 
-                        <div class="input-field"> <div class="errorSelect formValida"></div></div>
+                        <div class="errorSelect formValida"></div>
                         
                     </div>
+
+                    <div class="col s12 l12"><br></div>
 
                     <div class="input-field col s12 l6" id="cnpj">
                         <input type="text" name="cnpj" value="CNPJ" class="validate" disabled>
@@ -118,8 +120,9 @@
                     </div>
                 </form>
             </div>
-            <div id="teste" style="display: none">Lento...</div>
         </div>
+        
+        <div class="col s12 l12"><div class="divider"></div></div>
 
     </div>
 
@@ -232,8 +235,12 @@
         });
         });
     </script>
-
+    <!------------------------SCRIPT PARA VALIDAÇAO DOS INPUTS--------------------------->
+    <!--------------------------------------------------------------------------------!-->
     <script>
+    $.validator.setDefaults({
+       ignore: []
+    });
 
     $("#formPDF").validate({
         
@@ -247,7 +254,7 @@
         messages: {
             produto: "Especifique o produto a ser enviado",
             quantidade: "Especifique a quantidade a ser enviada",
-            unidade: "selecione"
+            unidade: "Selecione a unidade a qual será enviada"
             
         },
         errorElement : 'div',
