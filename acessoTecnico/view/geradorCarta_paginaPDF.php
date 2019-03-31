@@ -37,7 +37,7 @@ for($i = 0; $i<=12; $i++){
 }
 
 include_once '../conecta_banco.php';
-$query = $conecta->prepare("SELECT unidade FROM unidades_prevent WHERE id_unidade = 2 ");
+$query = $conecta->prepare("SELECT unidade FROM unidades_prevent WHERE id_unidade = ".$unidade." ");
 $query->execute();
 $fetchAll = $query->fetchAll();
 foreach($fetchAll as $choose){
@@ -51,7 +51,7 @@ foreach($fetchAll as $choose){
 <head>
     <meta charset='utf-8'>
     <style>body{ font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;}</style>
-    <title>Carta de Envio <?php echo $unidadeNome; ?></title>
+    <title>Carta de Envio - <?php echo $unidadeNome; ?></title>
 </head>
 <body>
 
