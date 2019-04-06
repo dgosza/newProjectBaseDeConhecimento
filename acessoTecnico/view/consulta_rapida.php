@@ -337,7 +337,7 @@
 
                     </div>
                     <div class="modal-footer container">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat left">Fechar</a>
                         <a href="#adicinarServerPastas" class="modal-action modal-trigger waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text">Adicionar Servidor de Pastas</a>
 
                     </div>

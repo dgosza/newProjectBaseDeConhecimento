@@ -60,11 +60,26 @@
         <div class="divider"></div>
 
         <div class="row">
-            <br>
-            <div class="col s12 l12 left">
-                <span><h1 class="flow-text">Ordenar por </h4></span>
-                <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons large left">business</i>Por Unidade</a>
-                <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons left">network_check</i>Por DHCP</a>
+            <div class="col s12 l12">
+                <div class="row container">
+
+                    <div class="col s12 l6 ordenar">
+                        <h2 class="flow-text">ORDERNAR POR</h2>
+                        <a class="waves-effect waves-light btn #0d47a1 blue darken-4 z-depth-3"><i class="material-icons large left">business</i>por Unidade</a>
+                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons left">network_check</i>por DHCP</a>
+                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons left">network_check</i>por Link</a>
+                    </div>
+
+                    <div class="col 12 l6">
+                        <form>
+                            <div class="input-field col s12 l12" style="postiion:relative;top:50px;">
+                                <input type="text" id="pesquisar" autocomplete="off">
+                                <label for="pesquisar"><i class="material-icons left">search</i>Pesquisar Unidade...</label>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>    
             </div>
             
             <div class="col s12 l12 tabelaUnidades">
@@ -76,6 +91,8 @@
                             <th class="flow-text">CNPJ</th>
                             <th class="flow-text">DHCP</th>
                             <th class="flow-text">Range IP</th>
+                            <th class="flow-text">Empresa do Link</th>
+                            <th class="flow-text">Assinatura</th>
                             <th class="flow-text">Ação</th>
                         </tr>
                     </thead>
@@ -99,6 +116,8 @@
                                 }
                                 echo '<td style="user-select:none;">'.$unidades['dhcp'].'</td>';
                                 echo '<td>'.$unidades['range_ip'].'</td>';
+                                echo '<td>'.$unidades['empresaLink'].'</td>';
+                                echo '<td>'.$unidades['assinatura'].'</td>';
                                 echo '<td>
                                         <a href="" style="color:inherit;"><i class="material-icons" title="Editar Dados de '.$unidades['unidade'].'">edit</i></a>
                                         <a href="" style="color:inherit;"><i class="material-icons" title="Excluir '.$unidades['unidade'].'">delete</i></a>                   
@@ -115,18 +134,6 @@
 
     <!----------------------------------FOOTER--------------------------->
     <?php include_once 'rodape.php'; ?>
-    
-
-
-
-
-
-
-
-
-
-
-
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

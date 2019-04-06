@@ -1,61 +1,31 @@
-html, body{
-    font-family: "Roboto", sans-serif;
-    height:100%;
-    
-}
-
-.middle h1 /* TITULOS DO SITE */{
-    text-transform: uppercase;
-}
+html, body{font-family: "Roboto", sans-serif; height:100%;}
+.middle h1{text-transform: uppercase;}/* TITULOS DO SITE */
 
 /* NAV BAR DROPDOWN */
 .dropdown-content li a{color:#115FD3;font-family: "Roboto", sans-serif;}
 .dropdown-content li a:hover{color:#0d47a1;background-color: #0d48a12d;}
 
 /* rodape */
-.middle{
-    min-height:100%;
-}
-.footer {
+.middle{min-height:100%;}
+.footer{
     position:absolute;
     bottom:0;
     width:100%;
 }
 
-.tabela th{
-    font-family: "Roboto", sans-serif;
-    font-size:18px;
-}
+/* consulta_rapida => table do servidor de pastas e impressao */
+.tabela th{font-family: "Roboto", sans-serif; font-size:18px;}
 
 /* SCROLLBAR */
-::-webkit-scrollbar-track {
-    background-color: #F4F4F4;
-}
-::-webkit-scrollbar {
-    width: 6px;
-    background: #F4F4F4;
-}
-::-webkit-scrollbar-thumb {
-    background: #dad7d7;
-}
+::-webkit-scrollbar-track {background-color: #F4F4F4;}
+::-webkit-scrollbar {width: 6px; background: #F4F4F4;}
+::-webkit-scrollbar-thumb {background: #dad7d7;}
 
 /* BREADCRUMB */
-nav.clean {
-  background: none;
-  box-shadow: none;
-}
-nav.clean .breadcrumb {
-  color: black;
-}
-nav.clean .breadcrumb:before {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-/* BREADCRUMB */
-
-.breadcrumb{
-    color:black;
-    font-size:15px;
+nav.clean {background: none; box-shadow: none;}
+nav.clean .breadcrumb {color: black;}
+nav.clean .breadcrumb:before {color: rgba(0, 0, 0, 0.7);}
+.breadcrumb{color:black; font-size:15px;
 }
 
 /* unidades.php */
@@ -70,3 +40,12 @@ nav.clean .breadcrumb:before {
     color:Red;
     float:left;
 }
+
+.input-field input:focus + label {
+    color: #175ec8  !important;
+  }
+  /* label underline focus color */
+  .row .input-field input:focus {
+    border-bottom: 1px solid #0f4ead  !important;
+    box-shadow: 0 1px 0 0 #0f4ead   !important
+  }
