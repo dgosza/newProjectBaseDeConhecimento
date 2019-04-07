@@ -65,9 +65,9 @@
 
                     <div class="col s12 l6 ordenar">
                         <h2 class="flow-text">ORDERNAR POR</h2>
-                        <a class="waves-effect waves-light btn #0d47a1 blue darken-4 z-depth-3"><i class="material-icons large left">business</i>por Unidade</a>
-                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons left">network_check</i>por DHCP</a>
-                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3"><i class="material-icons left">network_check</i>por Link</a>
+                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaUnidade" title="Ordernar Unidades por Nome"><i class="material-icons large left">business</i>por Unidade</a>
+                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaDHCP" title="Ordernar Unidades por DHCP"><i class="material-icons left">network_check</i>por DHCP</a>
+                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaLink" title="Ordernar Unidades pelo Link"><i class="material-icons left">network_check</i>por Link</a>
                     </div>
 
                     <div class="col 12 l6">
@@ -81,53 +81,12 @@
 
                 </div>    
             </div>
-            
-            <div class="col s12 l12 tabelaUnidades">
-                <table class="highlight bordered" >
-                    <thead>
-                        <tr>
-                            <th class="flow-text">Unidade</th>
-                            <th class="flow-text">Endereço</th>
-                            <th class="flow-text">CNPJ</th>
-                            <th class="flow-text">DHCP</th>
-                            <th class="flow-text">Range IP</th>
-                            <th class="flow-text">Empresa do Link</th>
-                            <th class="flow-text">Assinatura</th>
-                            <th class="flow-text">Ação</th>
-                        </tr>
-                    </thead>
 
-                    <tbody>
-                        <?php
-                            include_once '../conecta_banco.php';
-                            $query=$conecta->prepare("SELECT * FROM unidades_prevent WHERE ativo = 1 order by unidade ASC ");
-                            $query->execute();
-                            $fetchAll = $query->fetchall();
-                            foreach($fetchAll as $unidades){
-                                echo '<tr>';
-                                echo '<td style="user-select:none;"><a href="" style="color:inherit;">'.$unidades['sigla'].' - '.$unidades['unidade'].'</a></td>';
-                                echo '<td>'.$unidades['endereco'].'</td>';
-                                echo '<td>'.$unidades['cnpj'].'</td>';
-                                $verificaDHCP = $unidades['dhcp'];
-                                if($verificaDHCP == 1){
-                                    $unidades['dhcp'] = "Sim";
-                                }else{
-                                    $unidades['dhcp'] = "Não";
-                                }
-                                echo '<td style="user-select:none;">'.$unidades['dhcp'].'</td>';
-                                echo '<td>'.$unidades['range_ip'].'</td>';
-                                echo '<td>'.$unidades['empresaLink'].'</td>';
-                                echo '<td>'.$unidades['assinatura'].'</td>';
-                                echo '<td>
-                                        <a href="" style="color:inherit;"><i class="material-icons" title="Editar Dados de '.$unidades['unidade'].'">edit</i></a>
-                                        <a href="" style="color:inherit;"><i class="material-icons" title="Excluir '.$unidades['unidade'].'">delete</i></a>                   
-                                    </td>';
-                                echo '</tr>';
-                            }                            
-                        ?>
-                    </tbody>
-                </table>    
+            <!-- TABELA DAS UNIDADES -->
+            <div class="col s12 l12 tabelaUnidades" id="unidades">
+                <?php include_once '../controller/unidades_pesquisarUnidade.php'; ?>
             </div>
+            
         </div>
 
     </div>
@@ -162,6 +121,48 @@
     <script>
         $(".button-collapse").sideNav();
     </script>
-    
+    <!--------------------------------BUSCAR UNIDADE-------------------------------------!-->
+    <script>
+        $("#pesquisar").keyup(function(){
+        var busca = $("#pesquisar").val();
+        
+        $.post('../controller/unidades_pesquisarUnidade.php', {busca: busca},function(data){
+          $("#unidades").html(data);
+          
+        });
+
+      });
+        
+    </script>
+    <!--------------------------------ORDERNAR UNIDADES----------------------------------!-->
+    <script>
+        $("#ordernaUnidade").click(function(){
+        var unidade = ("unidade");
+        $.post('../controller/unidades_pesquisarUnidade.php', {ordena: unidade},function(data){
+           $("#unidades").html(data);
+            // alert(data);
+        });
+
+      });
+
+      $("#ordernaDHCP").click(function(){
+        var dhcp = ("dhcp");
+        $.post('../controller/unidades_pesquisarUnidade.php', {ordena: dhcp},function(data){
+           $("#unidades").html(data);
+        //   alert(data);
+        });
+
+      });
+
+      $("#ordernaLink").click(function(){
+        var link = ("empresaLink");
+        $.post('../controller/unidades_pesquisarUnidade.php', {ordena: link},function(data){
+           $("#unidades").html(data);
+            // alert(data);
+        });
+
+      });
+    </script>
+
 </body>
 </html>

@@ -41,11 +41,12 @@ nav.clean .breadcrumb:before {color: rgba(0, 0, 0, 0.7);}
     float:left;
 }
 
+/* label do input*/
 .input-field input:focus + label {
-    color: #175ec8  !important;
-  }
-  /* label underline focus color */
-  .row .input-field input:focus {
-    border-bottom: 1px solid #0f4ead  !important;
-    box-shadow: 0 1px 0 0 #0f4ead   !important
-  }
+    color: #7b7b7b    !important; 
+}
+  /* label underline focus color || Border bottom*/
+.row .input-field input:focus {
+    border-bottom: 1px solid #074cb4  !important;
+    box-shadow: 0 1px 0 0 #074cb4   !important
+}
