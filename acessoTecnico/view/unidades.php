@@ -68,6 +68,7 @@
                         <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaUnidade" title="Ordernar Unidades por Nome"><i class="material-icons large left">business</i>por Unidade</a>
                         <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaDHCP" title="Ordernar Unidades por DHCP"><i class="material-icons left">network_check</i>por DHCP</a>
                         <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaLink" title="Ordernar Unidades pelo Link"><i class="material-icons left">network_check</i>por Link</a>
+                        
                     </div>
 
                     <div class="col 12 l6">
@@ -96,12 +97,60 @@
                     $query->execute();
                     $fetchAll = $query->fetchAll();
                     foreach($fetchAll as $unidades){
-                        echo '<div id="editUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal modal-fixed-footer">';
+                        echo '<div id="editUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal modal-fixed-footer" style="width:1250px;">';
                         echo '  <div class="modal-content">';
                         echo '      <h1 class="flow-text">'.$unidades['sigla'].' - '.$unidades['unidade'].'</h1>';
+                        echo '      <div class="col s12 l12">';
+                        echo '          <form method="post" action="../model/editar_dados/edit_info_unidades_envia.php">';
+                        echo '              <input type="hidden" name="id_unidade" value="'.$unidades['id_unidade'].'">';
+
+                        echo '              <div class="input-field col s12 l1">';
+                        echo '                  <input type="text" class="validate" id="sigla" name="sigla" value="'.$unidades['sigla'].'" autocomplete="off" maxlength="3"> ';
+                        echo '                  <label for="sigla">Sigla</label>';
+                        echo '              </div>';
+
+                        echo '              <div class="input-field col s12 l5">';
+                        echo '                  <input type="text" class="validate" id="unidade" name="unidade" value="'.$unidades['unidade'].'" autocomplete="off" maxlength="3"> ';
+                        echo '                  <label for="unidade">Unidade</label>';
+                        echo '              </div>';
+
+                        echo '              <div class="input-field col s12 l4">';
+                        echo '                  <input type="text" class="validate" id="endereco" name="endereco" value="'.$unidades['endereco'].'" autocomplete="off" maxlength="3"> ';
+                        echo '                  <label for="endereco">Endereço</label>';
+                        echo '              </div>';
+
+                        echo '              <div class="input-field col s12 l2">';
+                        echo '                  <input type="text" class="validate" id="cnpj" name="cnpj" value="'.$unidades['cnpj'].'" autocomplete="off" maxlength=""> ';
+                        echo '                  <label for="cnpj">CNPJ</label>';
+                        echo '              </div>';
+
+                        echo '              <div class="col s12 l3 switch" style="position:relative;top:35px;">';
+                                                if($unidades['dhcp']==1){
+                                                    echo '<label>DHCP OFF<input type="checkbox" name="dhcp" checked> <span class="lever"></span>DHCP ON</label>';
+                                                }else{
+                                                    echo '<label>DHCP OFF<input type="checkbox" name="dhcp"> <span class="lever"></span>DHCP ON</label>';
+                                                }
+                        echo '              </div>';
+                        echo '              <div class="input-field col s12 l3">';
+                        echo '                  <input type="text" class="validate" id="range_ip" name="range_ip" value="'.$unidades['range_ip'].'" autocomplete="off" maxlength=""> ';
+                        echo '                  <label for="range_ip">Range IP</label>';
+                        echo '              </div>';
+                        echo '              <div class="input-field col s12 l3">';
+                        echo '                  <input type="text" class="validate" id="empresaLink" name="empresaLink" value="'.$unidades['empresaLink'].'" autocomplete="off" maxlength=""> ';
+                        echo '                  <label for="empresaLink">Empresa Responsável pelo Link</label>';
+                        echo '              </div>';
+                        echo '              <div class="input-field col s12 l3">';
+                        echo '                  <input type="text" class="validate" id="assinatura" name="assinatura" value="'.$unidades['assinatura'].'" autocomplete="off" maxlength=""> ';
+                        echo '                  <label for="assinatura">Assinatura</label>';
+                        echo '              </div>';
+
+                        echo '              <input type="submit" value="Editar" id="editar?id_unidade='.$unidades['id_unidade'].'" name="editar" style="display:none;"> ';
+                        echo '          </form>';
+                        echo '      </div>';
                         echo '  </div>';
                         echo '  <div class="modal-footer">';
                         echo '      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>';
+                        echo '        <label for="editar?id_unidade='.$unidades['id_unidade'].'" class="btn left waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text right" tabindex="0"><i class="material-icons right">send</i>Editar</label>';
                         echo '  </div>';
                         echo '</div>';
                     }
@@ -118,6 +167,7 @@
                         echo '  <div class="modal-content">';
                         echo '      <h1 class="flow-text">tem certeza que deseja excluir '.$unidades['unidade'].'?</h1>';
                         echo '  </div>';
+                        // pendente fazer
                         echo '  <div class="modal-footer">';
                         echo '      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>';
                         echo '  </div>';

@@ -56,6 +56,14 @@ nav.clean .breadcrumb:before {color: rgba(0, 0, 0, 0.7);}
 ul.dropdown-content.select-dropdown li span {
     color: #4968bc; /* no need for !important :) */
 }
+.switch label input[type=checkbox]:checked+.lever {
+  background-color: #3473d1;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: #3473d1;
+}
+
 
 .tabelaUnidades table tbody tr:hover {
   /* atributos para se mudar na linha da tabela */
