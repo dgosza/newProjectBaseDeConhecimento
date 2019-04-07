@@ -37,7 +37,7 @@
     if($count>0){
 
         echo '<table class="highlight bordered" >';
-        echo '    <thead>';
+        echo '    <thead>'; 
         echo '        <tr>';
         echo '            <th class="flow-text">Unidade</th>';
         echo '            <th class="flow-text">Endereço</th>';
@@ -53,7 +53,7 @@
 
         foreach($fetchAll as $unidades){
             echo '<tr>';
-            echo '<td style="user-select:none;"><a href="" style="color:inherit;">'.$unidades['sigla'].' - '.$unidades['unidade'].'</a></td>';
+            echo '<td style="user-select:none;" class="unidade" ><a href="" style="color:inherit;">'.$unidades['sigla'].' - '.$unidades['unidade'].'</a></td>';
             echo '<td>'.$unidades['endereco'].'</td>';
             echo '<td>'.$unidades['cnpj'].'</td>';
             $verificaDHCP = $unidades['dhcp'];

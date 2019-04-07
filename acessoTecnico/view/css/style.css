@@ -41,12 +41,29 @@ nav.clean .breadcrumb:before {color: rgba(0, 0, 0, 0.7);}
     float:left;
 }
 
+/*********************************************************** */
+/************ATRIBUTOS DO FORM****************************** */
 /* label do input*/
 .input-field input:focus + label {
     color: #7b7b7b    !important; 
 }
-  /* label underline focus color || Border bottom*/
+ /* label underline focus color || Border bottom*/
 .row .input-field input:focus {
     border-bottom: 1px solid #074cb4  !important;
     box-shadow: 0 1px 0 0 #074cb4   !important
+}
+/* COR DO SELECT DO FORM */
+ul.dropdown-content.select-dropdown li span {
+    color: #4968bc; /* no need for !important :) */
+}
+
+.tabelaUnidades table tbody tr:hover {
+  /* atributos para se mudar na linha da tabela */
+}
+.tabelaUnidades table tbody tr:hover .unidade {
+    /* ao passar o mouse pela linha, muda somente o id da unidade, que seria o titutlo */
+    color: #074cb4;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-out;
 }
