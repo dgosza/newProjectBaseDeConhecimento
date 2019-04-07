@@ -86,6 +86,47 @@
             <div class="col s12 l12 tabelaUnidades" id="unidades">
                 <?php include_once '../controller/unidades_pesquisarUnidade.php'; ?>
             </div>
+
+            <!-- MODAL DAS UNIDADES -->
+            <div>
+                <!-- MODAL EDIT UNIDADE -->
+                <?php
+                    include_once '../conecta_banco.php';
+                    $query = $conecta->prepare("SELECT * FROM unidades_prevent WHERE ativo = 1;");
+                    $query->execute();
+                    $fetchAll = $query->fetchAll();
+                    foreach($fetchAll as $unidades){
+                        echo '<div id="editUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal modal-fixed-footer">';
+                        echo '  <div class="modal-content">';
+                        echo '      <h1 class="flow-text">'.$unidades['sigla'].' - '.$unidades['unidade'].'</h1>';
+                        echo '  </div>';
+                        echo '  <div class="modal-footer">';
+                        echo '      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>';
+                        echo '  </div>';
+                        echo '</div>';
+                    }
+                ?>
+
+                <!-- MODAL DELETE UNIDADE -->
+                <?php
+                    include_once '../conecta_banco.php';
+                    $query = $conecta->prepare("SELECT * FROM unidades_prevent WHERE ativo = 1;");
+                    $query->execute();
+                    $fetchAll = $query->fetchAll();
+                    foreach($fetchAll as $unidades){
+                        echo '<div id="deleteUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal">';
+                        echo '  <div class="modal-content">';
+                        echo '      <h1 class="flow-text">tem certeza que deseja excluir '.$unidades['unidade'].'?</h1>';
+                        echo '  </div>';
+                        echo '  <div class="modal-footer">';
+                        echo '      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>';
+                        echo '  </div>';
+                        echo '</div>';
+                    }
+                ?>
+
+            </div>
+
             
         </div>
 
@@ -121,7 +162,14 @@
     <script>
         $(".button-collapse").sideNav();
     </script>
-    <!--------------------------------BUSCAR UNIDADE-------------------------------------!-->
+    <!--------------------------------MODAL-------------------------------------------!-->
+    <script>
+        $(document).ready(function(){
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+        });
+    </script>
+    <!--------------------------------BUSCAR UNIDADE----------------------------------!-->
     <script>
         $("#pesquisar").keyup(function(){
         var busca = $("#pesquisar").val();
@@ -134,7 +182,7 @@
       });
         
     </script>
-    <!--------------------------------ORDERNAR UNIDADES----------------------------------!-->
+    <!--------------------------------ORDERNAR UNIDADES-------------------------------!-->
     <script>
         $("#ordernaUnidade").click(function(){
         var unidade = ("unidade");

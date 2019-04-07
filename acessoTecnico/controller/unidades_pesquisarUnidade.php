@@ -67,8 +67,8 @@
             echo '<td>'.$unidades['empresaLink'].'</td>';
             echo '<td>'.$unidades['assinatura'].'</td>';
             echo '<td>
-                    <a href="" style="color:inherit;"><i class="material-icons" title="Editar Dados de '.$unidades['unidade'].'">edit</i></a>
-                    <a href="" style="color:inherit;"><i class="material-icons" title="Excluir '.$unidades['unidade'].'">delete</i></a>                   
+                    <a href="#editUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal-trigger" style="color:inherit;"><i class="material-icons" title="Editar Dados de '.$unidades['unidade'].'">edit</i></a>
+                    <a href="#deleteUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal-trigger" style="color:inherit;"><i class="material-icons" title="Excluir '.$unidades['unidade'].'">delete</i></a>                   
                 </td>';
             echo '</tr>';                                                          
         }
