@@ -1,6 +1,6 @@
 <?php 
 
-    include_once '../conecta_banco.php';
+    include_once '../../conecta_banco.php';
     @$busca = $_POST['busca'];
     @$ordenar = $_POST['ordena'];
 

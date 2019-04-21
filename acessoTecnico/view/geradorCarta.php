@@ -65,7 +65,7 @@
                         <select name="unidade" id="unidade" data-error=".errorSelect" >
                             <option value disabled selected>Escolha a unidade</option>
                             <?php   
-                                include_once '../conecta_banco.php';
+                                include_once '../../conecta_banco.php';
                                 $select = $conecta->prepare("SELECT id_unidade, unidade FROM unidades_prevent where ativo in (1,3) ORDER BY unidade ASC");
                                 $select->execute();
                                 $fetchAll = $select->fetchAll();

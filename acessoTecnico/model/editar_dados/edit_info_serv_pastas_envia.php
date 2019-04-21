@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    include_once '../../conecta_banco.php';
+    include_once '../../../conecta_banco.php';
 
     $envia = filter_input (INPUT_GET, 'editar', FILTER_SANITIZE_STRING);
 

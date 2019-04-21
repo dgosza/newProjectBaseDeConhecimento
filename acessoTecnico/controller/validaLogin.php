@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    include_once '../conecta_banco.php';
+    include_once '../../conecta_banco.php';
     $message = "";
     try{  
         $conecta->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

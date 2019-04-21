@@ -2,7 +2,7 @@ delete_info_serv_pastas_envia.php
 
 <?php
     session_start();
-    include_once '../../conecta_banco.php';
+    include_once '../../../conecta_banco.php';
     
     $linha=filter_input (INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     $query="UPDATE serv_pastas set ativo = 0 WHERE id = ".$linha." ";

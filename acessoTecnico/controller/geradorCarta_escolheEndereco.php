@@ -1,6 +1,6 @@
 <?php
     
-    include_once '../conecta_banco.php';
+    include_once '../../conecta_banco.php';
 
     $pegaEndereco = $conecta->prepare("SELECT * FROM unidades_prevent WHERE id_unidade = '".$_POST['id']."'") ;
     $pegaEndereco->execute();

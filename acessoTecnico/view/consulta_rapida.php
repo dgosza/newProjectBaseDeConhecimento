@@ -90,7 +90,7 @@
                             <tbody>
                                 <?php
 
-                                    include_once '../conecta_banco.php';
+                                    include_once '../../conecta_banco.php';
                                     $query = $conecta->prepare("SELECT unidade.*, serv_impressao.*
                                     FROM serv_impressao as serv_impressao 
                                     RIGHT JOIN unidades_prevent as unidade 
@@ -127,7 +127,7 @@
                 <!----------------------------------INICIO MODAL EDITAR DADOS DO SERVER DE IMPRESSAO--------------------------->
                 <?php 
                 
-                    include_once '../conecta_banco.php';
+                    include_once '../../conecta_banco.php';
                     $query = $conecta->prepare("SELECT unidade.*, serv_impressao.*
                     FROM serv_impressao as serv_impressao 
                     RIGHT JOIN unidades_prevent as unidade 
@@ -228,7 +228,7 @@
                 <!----------------------------------INICIO MODAL DELETE DADOS DO SERVER DE IMPRESSAO--------------------------->
                 <?php 
                 
-                    include_once '../conecta_banco.php';
+                    include_once '../../conecta_banco.php';
                     $query = $conecta->prepare("SELECT unidade.*, serv_impressao.*
                     FROM serv_impressao as serv_impressao 
                     RIGHT JOIN unidades_prevent as unidade 
@@ -309,7 +309,7 @@
                             <tbody>
                                 <?php
 
-                                    include_once '../conecta_banco.php';
+                                    include_once '../../conecta_banco.php';
                                     $query = $conecta->prepare("SELECT unidade.*, serv_pastas.*
                                     FROM serv_pastas as serv_pastas 
                                     RIGHT JOIN unidades_prevent as unidade 
@@ -387,7 +387,7 @@
                 <!----------------------------------INICIO MODAL EDITAR DADOS DO SERVER DE PASTAS--------------------------->
                 <?php 
                 
-                    include_once '../conecta_banco.php';
+                    include_once '../../conecta_banco.php';
                     $query = $conecta->prepare("SELECT unidade.*, serv_pastas.*
                     FROM serv_pastas as serv_pastas 
                     RIGHT JOIN unidades_prevent as unidade 
@@ -445,7 +445,7 @@
                 <!----------------------------------INICIO MODAL DELETE DADOS DO SERVER DE IMPRESSAO--------------------------->
                 <?php 
                 
-                    include_once '../conecta_banco.php';
+                    include_once '../../conecta_banco.php';
                     $query = $conecta->prepare("SELECT unidade.*, serv_pastas.*
                     FROM serv_pastas as serv_pastas 
                     RIGHT JOIN unidades_prevent as unidade 

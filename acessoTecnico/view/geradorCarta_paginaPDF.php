@@ -36,7 +36,7 @@ for($i = 0; $i<=12; $i++){
     }
 }
 
-include_once '../conecta_banco.php';
+include_once '../../conecta_banco.php';
 $query = $conecta->prepare("SELECT unidade FROM unidades_prevent WHERE id_unidade = ".$unidade." ");
 $query->execute();
 $fetchAll = $query->fetchAll();

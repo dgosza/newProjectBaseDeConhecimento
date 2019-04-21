@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    include_once '../../conecta_banco.php';
+    include_once '../../../conecta_banco.php';
 
 
         $endereco_ip = filter_input (INPUT_POST, 'endereco_ip', FILTER_SANITIZE_STRING);

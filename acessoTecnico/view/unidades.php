@@ -65,9 +65,9 @@
 
                     <div class="col s12 l6 ordenar">
                         <h2 class="flow-text">ORDERNAR POR</h2>
-                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaUnidade" title="Ordernar Unidades por Nome"><i class="material-icons large left">business</i>por Unidade</a>
-                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaDHCP" title="Ordernar Unidades por DHCP"><i class="material-icons left">network_check</i>por DHCP</a>
-                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaLink" title="Ordernar Unidades pelo Link"><i class="material-icons left">network_check</i>por Link</a>
+                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaUnidade" title="Ordernar Unidades por Nome"><i class="material-icons large left">business</i>Unidade</a>
+                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaDHCP" title="Ordernar Unidades por DHCP"><i class="material-icons left">network_check</i>DHCP</a>
+                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaLink" title="Ordernar Unidades pelo Link"><i class="material-icons left">network_check</i>Link</a>
                         
                     </div>
 
@@ -92,12 +92,12 @@
             <div>
                 <!-- MODAL EDIT UNIDADE -->
                 <?php
-                    include_once '../conecta_banco.php';
+                    include_once '../../conecta_banco.php';
                     $query = $conecta->prepare("SELECT * FROM unidades_prevent WHERE ativo = 1;");
                     $query->execute();
                     $fetchAll = $query->fetchAll();
                     foreach($fetchAll as $unidades){
-                        echo '<div id="editUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal modal-fixed-footer" style="width:1250px;">';
+                        echo '<div id="editUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal modal-fixed-footer" style="width:1250px; height:400px;">';
                         echo '  <div class="modal-content">';
                         echo '      <h1 class="flow-text">'.$unidades['sigla'].' - '.$unidades['unidade'].'</h1>';
                         echo '      <div class="col s12 l12">';
@@ -110,17 +110,17 @@
                         echo '              </div>';
 
                         echo '              <div class="input-field col s12 l5">';
-                        echo '                  <input type="text" class="validate" id="unidade" name="unidade" value="'.$unidades['unidade'].'" autocomplete="off" maxlength="3"> ';
+                        echo '                  <input type="text" class="validate" id="unidade" name="unidade" value="'.$unidades['unidade'].'" autocomplete="off" maxlength="100"> ';
                         echo '                  <label for="unidade">Unidade</label>';
                         echo '              </div>';
 
                         echo '              <div class="input-field col s12 l4">';
-                        echo '                  <input type="text" class="validate" id="endereco" name="endereco" value="'.$unidades['endereco'].'" autocomplete="off" maxlength="3"> ';
+                        echo '                  <input type="text" class="validate" id="endereco" name="endereco" value="'.$unidades['endereco'].'" autocomplete="off" maxlength="150"> ';
                         echo '                  <label for="endereco">Endereço</label>';
                         echo '              </div>';
 
                         echo '              <div class="input-field col s12 l2">';
-                        echo '                  <input type="text" class="validate" id="cnpj" name="cnpj" value="'.$unidades['cnpj'].'" autocomplete="off" maxlength=""> ';
+                        echo '                  <input type="text" class="validate" id="cnpj" name="cnpj" value="'.$unidades['cnpj'].'" autocomplete="off" maxlength="18"> ';
                         echo '                  <label for="cnpj">CNPJ</label>';
                         echo '              </div>';
 
@@ -132,15 +132,15 @@
                                                 }
                         echo '              </div>';
                         echo '              <div class="input-field col s12 l3">';
-                        echo '                  <input type="text" class="validate" id="range_ip" name="range_ip" value="'.$unidades['range_ip'].'" autocomplete="off" maxlength=""> ';
+                        echo '                  <input type="text" class="validate" id="range_ip" name="range_ip" value="'.$unidades['range_ip'].'" autocomplete="off" maxlength="15"> ';
                         echo '                  <label for="range_ip">Range IP</label>';
                         echo '              </div>';
                         echo '              <div class="input-field col s12 l3">';
-                        echo '                  <input type="text" class="validate" id="empresaLink" name="empresaLink" value="'.$unidades['empresaLink'].'" autocomplete="off" maxlength=""> ';
+                        echo '                  <input type="text" class="validate" id="empresaLink" name="empresaLink" value="'.$unidades['empresaLink'].'" autocomplete="off" maxlength="30"> ';
                         echo '                  <label for="empresaLink">Empresa Responsável pelo Link</label>';
                         echo '              </div>';
                         echo '              <div class="input-field col s12 l3">';
-                        echo '                  <input type="text" class="validate" id="assinatura" name="assinatura" value="'.$unidades['assinatura'].'" autocomplete="off" maxlength=""> ';
+                        echo '                  <input type="text" class="validate" id="assinatura" name="assinatura" value="'.$unidades['assinatura'].'" autocomplete="off" maxlength="30"> ';
                         echo '                  <label for="assinatura">Assinatura</label>';
                         echo '              </div>';
 
@@ -158,7 +158,7 @@
 
                 <!-- MODAL DELETE UNIDADE -->
                 <?php
-                    include_once '../conecta_banco.php';
+                    include_once '../../conecta_banco.php';
                     $query = $conecta->prepare("SELECT * FROM unidades_prevent WHERE ativo = 1;");
                     $query->execute();
                     $fetchAll = $query->fetchAll();
