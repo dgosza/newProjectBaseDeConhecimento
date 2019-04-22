@@ -186,7 +186,7 @@
                 data:{id:idUnidade},
                 beforeSend:function(){
                     $("#cnpj").css({'display':'block'});
-                    $("#cnpj").html("Carregando...");
+                    $("#cnpj").html("<div class='progress'> <div class='indeterminate'></div> </div>");
                 },
                 success:function(data){
                     $("#cnpj").css({'display':'block'});
@@ -212,7 +212,7 @@
                 data:{id:idUnidade},
                 beforeSend:function(){
                     $("#endereco").css({'display':'block'});
-                    $("#endereco").html("Carregando...");
+                    $("#endereco").html("<div class='progress'> <div class='indeterminate'></div> </div>");
                 },
                 success:function(data){
                     $("#endereco").css({'display':'block'});
