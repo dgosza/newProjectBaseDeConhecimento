@@ -41,7 +41,7 @@ $query = $conecta->prepare("SELECT unidade FROM unidades_prevent WHERE id_unidad
 $query->execute();
 $fetchAll = $query->fetchAll();
 foreach($fetchAll as $choose){
-   $unidadeNome = $choose['unidade'];
+   $unidadeNome = $choose['unidade']. " - ".$produto;
 }
 
 ?>

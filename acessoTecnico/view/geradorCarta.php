@@ -91,13 +91,13 @@
                     
                     <div class="input-field col s12 l6">
                         <label for="produto">Produto</label>
-                        <input id="produto" name="produto" type="text" class="validate" maxlength="30" data-error=".error1">
+                        <input id="produto" name="produto" type="text" class="validate" maxlength="35" data-error=".error1">
                         <div class="error1 formValida"></div>
                     </div>
 
                     <div class="input-field col s12 l6">
                         <label for="patri">Número do Patrimônio</label>
-                        <input id="patri" name="patri" type="text" class="validate" maxlength="30" autocomplete="off">
+                        <input id="patri" name="patri" type="text" class="validate" maxlength="100" autocomplete="off">
                     </div>
 
                     <div class="col s12 l12"><br></div>
