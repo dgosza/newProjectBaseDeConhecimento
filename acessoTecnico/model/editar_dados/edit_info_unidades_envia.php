@@ -12,10 +12,17 @@
         $endereco = filter_input (INPUT_GET, 'endereco', FILTER_SANITIZE_STRING);
         $unidade = filter_input (INPUT_GET, 'unidade', FILTER_SANITIZE_STRING);
         $cnpj = filter_input (INPUT_GET, 'cnpj', FILTER_SANITIZE_STRING);
-        $dhcp = filter_input (INPUT_GET, 'dhcp', FILTER_SANITIZE_INT);
+        $dhcp = filter_input (INPUT_GET, 'dhcp', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $range_ip = filter_input (INPUT_GET, 'range_ip', FILTER_SANITIZE_STRING);
         $empresaLink = filter_input (INPUT_GET, 'empresaLink', FILTER_SANITIZE_STRING);
         $assinatura = filter_input (INPUT_GET, 'assinatura', FILTER_SANITIZE_STRING);
+
+        
+        if($dhcp != "on"){
+            $dhcp = 0;
+        }else{
+            $dhcp = 1;
+        }
 
 
         $query="UPDATE unidades_prevent set sigla = :sigla, endereco = :endereco, unidade = :unidade, cnpj = :cnpj, dhcp = :dhcp, range_ip = :range_ip, empresaLink = :empresaLink, assinatura = :assinatura WHERE id_unidade = ".$id." ";
