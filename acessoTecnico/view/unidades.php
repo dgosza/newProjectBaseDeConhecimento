@@ -67,11 +67,11 @@
                         <h2 class="flow-text">ORDERNAR POR</h2>
                         <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaUnidade" title="Ordernar Unidades por Nome"><i class="material-icons large left">business</i>Unidade</a>
                         <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaDHCP" title="Ordernar Unidades por DHCP"><i class="material-icons left">network_check</i>DHCP</a>
-                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaLink" title="Ordernar Unidades pelo Link"><i class="material-icons left">network_check</i>Link</a>
+                        <a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3" id="ordernaLink" title="Ordernar Unidades pelo Link"><i class="material-icons left">leak_add</i>Link</a>
                         
                     </div>
 
-                    <div class="col 12 l6">
+                    <div class="col s12 l5">
                         <form>
                             <div class="input-field col s12 l12" style="postiion:relative;top:50px;">
                                 <input type="text" id="pesquisar" autocomplete="off">
@@ -101,7 +101,7 @@
                         echo '  <div class="modal-content">';
                         echo '      <h1 class="flow-text">'.$unidades['sigla'].' - '.$unidades['unidade'].'</h1>';
                         echo '      <div class="col s12 l12">';
-                        echo '          <form method="post" action="../model/editar_dados/edit_info_unidades_envia.php">';
+                        echo '          <form method="get" action="../model/editar_dados/edit_info_unidades_envia.php">';
                         echo '              <input type="hidden" name="id_unidade" value="'.$unidades['id_unidade'].'">';
 
                         echo '              <div class="input-field col s12 l1">';
@@ -150,7 +150,7 @@
                         echo '  </div>';
                         echo '  <div class="modal-footer">';
                         echo '      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>';
-                        echo '        <label for="editar?id_unidade='.$unidades['id_unidade'].'" class="btn left waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text right" tabindex="0"><i class="material-icons right">send</i>Editar</label>';
+                        echo '        <label for="editar?id_unidade='.$unidades['id_unidade'].'" class="btn left waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text right" tabindex="0">Editar</label>';
                         echo '  </div>';
                         echo '</div>';
                     }
@@ -163,18 +163,123 @@
                     $query->execute();
                     $fetchAll = $query->fetchAll();
                     foreach($fetchAll as $unidades){
-                        echo '<div id="deleteUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal">';
+                        echo '<div id="deleteUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal modal-fixed-footer" style="width:1250px; height:400px;">';
                         echo '  <div class="modal-content">';
-                        echo '      <h1 class="flow-text">tem certeza que deseja excluir '.$unidades['unidade'].'?</h1>';
+                        echo '      <h1 class="flow-text">TEM CERTEZA QUE DESEJA EXCLUIR <strong>'.$unidades['unidade'].'</strong>?</h1>';
+                        echo '      <div class="col s12 l12">';
+                        echo '          <form method="get" action="../model/delete_dados/delete_info_unidades_envia.php">';
+                        echo '              <input type="hidden" name="id_unidade" value="'.$unidades['id_unidade'].'">';
+
+                        echo '              <div class="input-field col s12 l1">';
+                        echo '                  <input type="text" class="validate" id="sigla" name="sigla" value="'.$unidades['sigla'].'" autocomplete="off" maxlength="3" disabled> ';
+                        echo '                  <label for="sigla">Sigla</label>';
+                        echo '              </div>';
+
+                        echo '              <div class="input-field col s12 l5">';
+                        echo '                  <input type="text" class="validate" id="unidade" name="unidade" value="'.$unidades['unidade'].'" autocomplete="off" maxlength="100" disabled> ';
+                        echo '                  <label for="unidade">Unidade</label>';
+                        echo '              </div>';
+
+                        echo '              <div class="input-field col s12 l4">';
+                        echo '                  <input type="text" class="validate" id="endereco" name="endereco" value="'.$unidades['endereco'].'" autocomplete="off" maxlength="150" disabled> ';
+                        echo '                  <label for="endereco">Endereço</label>';
+                        echo '              </div>';
+
+                        echo '              <div class="input-field col s12 l2">';
+                        echo '                  <input type="text" class="validate" id="cnpj" name="cnpj" value="'.$unidades['cnpj'].'" autocomplete="off" maxlength="18" disabled> ';
+                        echo '                  <label for="cnpj">CNPJ</label>';
+                        echo '              </div>';
+
+                        echo '              <div class="col s12 l3 switch" style="position:relative;top:35px;">';
+                                                if($unidades['dhcp']==1){
+                                                    echo '<label>DHCP OFF<input type="checkbox" name="dhcp" checked disabled> <span class="lever"></span>DHCP ON</label >';
+                                                }else{
+                                                    echo '<label>DHCP OFF<input type="checkbox" name="dhcp" disabled> <span class="lever"></span>DHCP ON</label>';
+                                                }
+                        echo '              </div>';
+                        echo '              <div class="input-field col s12 l3">';
+                        echo '                  <input type="text" class="validate" id="range_ip" name="range_ip" value="'.$unidades['range_ip'].'" autocomplete="off" maxlength="15" disabled> ';
+                        echo '                  <label for="range_ip">Range IP</label>';
+                        echo '              </div>';
+                        echo '              <div class="input-field col s12 l3">';
+                        echo '                  <input type="text" class="validate" id="empresaLink" name="empresaLink" value="'.$unidades['empresaLink'].'" autocomplete="off" maxlength="30" disabled> ';
+                        echo '                  <label for="empresaLink">Empresa Responsável pelo Link</label>';
+                        echo '              </div>';
+                        echo '              <div class="input-field col s12 l3">';
+                        echo '                  <input type="text" class="validate" id="assinatura" name="assinatura" value="'.$unidades['assinatura'].'" autocomplete="off" maxlength="30" disabled> ';
+                        echo '                  <label for="assinatura">Assinatura</label>';
+                        echo '              </div>';
+
+                        echo '              <input type="submit" value="excluir" id="excluir?id_unidade='.$unidades['id_unidade'].'" name="excluir" style="display:none;"> ';
+                        echo '          </form>';
+                        echo '      </div>';
                         echo '  </div>';
-                        // pendente fazer
                         echo '  <div class="modal-footer">';
                         echo '      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>';
+                        echo '        <label for="excluir?id_unidade='.$unidades['id_unidade'].'" class="btn left waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text right" tabindex="0">EXCLUIR</label>';
                         echo '  </div>';
                         echo '</div>';
                     }
                 ?>
 
+                <!-- MODAL CADASTRAR UNIDADE -->
+                <div id="cadastrarUnidade" class="modal modal-fixed-footer" style="width:1250px; height:400px;">
+                    <div class="modal-content">
+                        <h1 class="flow-text">cadastrar unidade</h1>
+                        <div class="col s12 l12">
+                            <form method="post" action="../model/adicionar_dados/add_info_unidades_envia.php">
+
+                                <div class="input-field col s12 l1">
+                                    <input type="text" class="validate" id="sigla" name="sigla" autocomplete="off" maxlength="3">
+                                    <label for="sigla">Sigla</label>
+                                </div>
+
+                                <div class="input-field col s12 l5">
+                                    <input type="text" class="validate" id="unidade" name="unidade" autocomplete="off" maxlength="100"> 
+                                    <label for="unidade">Unidade</label>
+                                </div>
+
+                                <div class="input-field col s12 l4">
+                                    <input type="text" class="validate" id="endereco" name="endereco" autocomplete="off" maxlength="150"> 
+                                    <label for="endereco">Endereço</label>
+                                </div>
+
+                                <div class="input-field col s12 l2">
+                                    <input type="text" class="validate" id="cnpj" name="cnpj" autocomplete="off" maxlength="18"> 
+                                    <label for="cnpj">CNPJ</label>
+                                </div>
+
+                                <div class="col s12 l3 switch" style="position:relative;top:35px;">
+                                    <label>DHCP OFF<input type="checkbox" name="dhcp"> <span class="lever"></span>DHCP ON</label>
+                                </div>
+
+                                <div class="input-field col s12 l3">
+                                    <input type="text" class="validate" id="range_ip" name="range_ip" autocomplete="off" maxlength="15"> 
+                                    <label for="range_ip">Range IP</label>
+                                </div>
+
+                                <div class="input-field col s12 l3">
+                                    <input type="text" class="validate" id="empresaLink" name="empresaLink" autocomplete="off" maxlength="30">
+                                    <label for="empresaLink">Empresa Responsável pelo Link</label>
+                                </div>
+
+                                <div class="input-field col s12 l3">
+                                    <input type="text" class="validate" id="assinatura" name="assinatura" autocomplete="off" maxlength="30">
+                                    <label for="assinatura">Assinatura</label>
+                                </div>
+
+                                <input type="submit" value="Editar" id="cadastrar" name="editar" style="display:none;">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+                        <label for="cadastrar" class="btn left waves-effect waves-green btn-flat #0d47a1 blue darken-3 white-text right" >CADASTRAR</label>
+                    </div>
+
+                </div>
+                
             </div>
 
             

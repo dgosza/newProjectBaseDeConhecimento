@@ -47,13 +47,7 @@
                 <div class="col s12 l12">
                     <br>
                     <h1 class="flow-text ">unidades da prevent senior<i class="material-icons"></i></h1>
-                    <a class="waves-effect waves-light btn" href="unidades.php" style="background-color: #146BED"><i class="material-icons left">business</i>UNIDADES</a>
-                </div>
-
-                <div class="col s12 l12">
-                    <br>
-                    <h1 class="flow-text ">validador de cpf e rg<i class="material-icons"></i></h1>
-                    <p>to do...</p>
+                    <a class="waves-effect waves-light btn" href="unidades.php" style="background-color: #146BED"><i class="material-icons left">business</i>UNIDADES</a> <span style="position:relative;top:5px;"><i class="material-icons small">fiber_new</i></span>
                 </div>
 
                 <div class="col s12 l12">

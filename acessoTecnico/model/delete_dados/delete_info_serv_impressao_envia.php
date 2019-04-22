@@ -8,6 +8,6 @@
     if($altera->execute()){
         header("Location: ../../view/consulta_rapida.php");
     }else{
-        echo 'erro ao excluir filme';
+        echo 'erro ao excluir servidor';
     }   
 ?>

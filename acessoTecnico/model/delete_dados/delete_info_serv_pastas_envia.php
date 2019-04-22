@@ -1,5 +1,3 @@
-delete_info_serv_pastas_envia.php
-
 <?php
     session_start();
     include_once '../../../conecta_banco.php';
@@ -10,6 +8,6 @@ delete_info_serv_pastas_envia.php
     if($altera->execute()){
         header("Location: ../../view/consulta_rapida.php");
     }else{
-        echo 'erro ao excluir filme';
+        echo 'erro ao excluirpastas';
     }   
 ?>

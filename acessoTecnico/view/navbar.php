@@ -28,8 +28,7 @@
             </ul>
 
             <ul id="dropdown1" class="dropdown-content" style="color:#000;">
-                <li><a href="meuPerfil.php">Meu Perfil</a></li>
-                <li><a href="#!">Teste</a></li>
+                <!-- <li><a href="meuPerfil.php">Meu Perfil</a></li> -->
                 <li class="divider"></li>
                 <li><a href="../controller/sair.php">Sair</a></li>
             </ul>
@@ -39,8 +38,7 @@
                 <li><a href="manual_sistema.php">Manual do Sistema</a></li>
                 <li><a href="faq.php">FAQ</a></li>
                 <li class="divider"></li>
-                <li><a href="meuPerfil.php">Meu Perfil</a></li>
-                <li><a href="#!">Teste</a></li>
+                <!-- <li><a href="meuPerfil.php">Meu Perfil</a></li> -->
                 <li class="divider"></li>
                 <li><a href="../controller/sair.php">Sair</a></li>
                 <li class="divider"></li>

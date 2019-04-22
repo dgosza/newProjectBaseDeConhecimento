@@ -7,14 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--------------------FAV ICON--------------------------------------------!-->
-    <link rel="icon" type="image/png" sizes="96x96" href="indexTipoAcesso/favBase.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="indexUtility/favBase.png">
 
     <!--------------------MATERIALIZE FRAMEWORK AND CSS STYLE------------------!-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="indexTipoAcesso/indexTipoAcesso.css" />
 
     <!--------------------ICONES MATERIALIZE FRAMEWORK-----------------------!-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--------------------ICONES AWESOME-----------------------!-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body{
+        background-color:#0d47a1;
+        user-select: none;
+    }
+
+    .escolheAcesso{
+        color:#fff;
+        font-size:34px;
+    }
+    </style>
 
 </head>
 <body>
@@ -24,7 +38,7 @@
             
             <div class="col s12 l12">
                 <br><br><br><br><br>
-                <img class="responsive-img" src="indexTipoAcesso/logoPreventBranco.png"> 
+                <img class="responsive-img" src="indexUtility/logoPreventBranco.png"> 
             </div>
             
         </div>
@@ -34,6 +48,7 @@
             <h6>Escolha o tipo de acesso a Base De Conhecimento da Prevent Senior</h6>
             <a class="waves-effect waves-light btn white" style="color:#0d47a1;" href="acessoTecnico/view/verificaLogin.php"><i class="material-icons left">polymer</i>Acesso Técnico TI</a>
             <a class="waves-effect waves-light btn white" style="color:#0d47a1;" href="acessoUsuario/view/index.php"><i class="material-icons left">person</i>Acesso Usuário</a>
+            <a class="waves-effect waves-light btn white" style="color:#0d47a1;" href="#"><i class="fa fa-heartbeat left" aria-hidden="true"></i>Acesso Médico</a>
         </div>
 
     </div>

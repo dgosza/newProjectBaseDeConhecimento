@@ -29,13 +29,14 @@
     echo '    </div>';
     echo '</div> ';
 
+    echo '<div class="col s12 l12"><a class="waves-effect waves-light btn #0d47a1 blue darken-3 z-depth-3 right modal-trigger modal-action" title="Cadastrar Unidade" href="#cadastrarUnidade"><i class="material-icons left">library_add</i>CADASTRAR UNIDADE</a></div>';
+
     $query = $conecta->prepare("SELECT * FROM unidades_prevent WHERE (unidade LIKE '%$busca%' OR endereco like '%$busca%') AND ativo = 1 ORDER BY ".$ordenar." ASC");
     $query->execute();
     $fetchAll = $query->fetchAll();
     $count= $query->rowCount();
 
     if($count>0){
-
         echo '<table class="highlight bordered" >';
         echo '    <thead>'; 
         echo '        <tr>';
@@ -68,7 +69,7 @@
             echo '<td>'.$unidades['assinatura'].'</td>';
             echo '<td>
                     <a href="#editUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal-trigger" style="color:inherit;"><i class="material-icons" title="Editar Dados de '.$unidades['unidade'].'">edit</i></a>
-                    <a href="#deleteUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal-trigger" style="color:inherit;"><i class="material-icons" title="Excluir '.$unidades['unidade'].'">delete</i></a>                   
+                    <a href="#deleteUnidade?id_unidade='.$unidades['id_unidade'].'" class="modal-trigger" style="color:inherit;"><i class="material-icons" title="Excluir '.$unidades['unidade'].'">delete</i></a>                
                 </td>';
             echo '</tr>';                                                          
         }

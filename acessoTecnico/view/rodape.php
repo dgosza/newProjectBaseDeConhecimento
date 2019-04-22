@@ -11,8 +11,8 @@
         <div class="col l2 offset-l2">
             <h5 class="white-text">Links Úteis</h5>
             <ul>
-                <li><a class="grey-text text-lighten-3" href="index_tecnico.php">Home</a></li>
-                <li><a class="grey-text text-lighten-3" href="contatos.php">Contatos</a></li>
+                <li><a class="grey-text text-lighten-3" href="index.php">Home</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
                 <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
                 <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
             </ul>

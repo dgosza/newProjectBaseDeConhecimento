@@ -22,6 +22,26 @@
         .escolheAcesso{
             user-select:none;
         }
+
+        .input-field input:focus + label {
+            color: #fff    !important; 
+        }
+
+        /* label underline focus color || Border bottom*/
+        .row .input-field input:focus {
+            border-bottom: 1px solid #fff  !important;
+            box-shadow: 0 1px 0 0 #fff   !important
+        }
+
+        .switch label input[type=checkbox]:checked+.lever {
+        background-color: #fff;
+        }
+
+        .switch label input[type=checkbox]:checked+.lever:after {
+        background-color: #fff;
+        }
+
+
     </style>
 </head>
 <body>
